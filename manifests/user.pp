@@ -8,7 +8,7 @@ define deluge::user (
     fail('ensure parameter must be one of absent, present')
   }
 
-  $home   = $deluge::server::service_home
+  $home   = $deluge::service_home
 
   if ($ensure in [ 'present' ]) {
     concat::fragment{ "${name}-${level}-${ensure}":

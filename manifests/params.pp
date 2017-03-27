@@ -1,5 +1,5 @@
 class deluge::params {
-  $type            = server
+  $type            = client
   $repo_manage     = true
   $repo_sources    = {
     ubuntu => 'ppa:deluge-team/ppa',
