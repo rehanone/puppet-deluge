@@ -1,0 +1,15 @@
+start on started deluge
+stop on stopping deluge
+
+env uid=<%= $deluge::service_user %>
+env gid=<%= $deluge::service_user %>
+
+env umask=027
+
+# 007 grants full access to the user and members of the group Deluge is running as (in this case deluge) and prevents access from all other accounts.
+# 027 grants full access to the user deluge is running as, read access to members of the group that deluge is running as and prevents access from all other accounts.
+# 022 grants full access to the user Deluge is running as and only read access to other accounts.
+# 000 grants full access to all accounts.
+
+exec start-stop-daemon -S -c $uid:$gid -k $umask -x /usr/bin/deluge-web -- -l /var/log/deluge/web.log -L warning
+
