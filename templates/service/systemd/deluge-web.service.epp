@@ -1,12 +1,16 @@
+<%- |   String  $service_user,
+| -%>
 [Unit]
 Description=Deluge Bittorrent Client Web Interface
-After=network-online.target
+Documentation=man:deluge-web
+After=network-online.target deluged.service
+Wants=deluged.service
 
 [Service]
 Type=simple
 
-User=<%= $deluge::service_user %>
-Group=<%= $deluge::service_user %>
+User=<%= $service_user %>
+Group=<%= $service_user %>
 UMask=027
 
 ExecStart=/usr/bin/deluge-web -l /var/log/deluge/web.log -L warning

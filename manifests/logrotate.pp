@@ -11,13 +11,35 @@ class deluge::logrotate () inherits deluge {
       require => User[$deluge::service_user],
     }
 
-    file { '/etc/logrotate.d/deluge':
-      ensure  => file,
-      owner   => 'root',
-      group   => 'root',
-      mode    => '0644',
-      source  => "puppet:///modules/${module_name}/deluge",
-      require => User[$deluge::service_user],
+
+    case $facts[service_provider] {
+      'upstart': {
+        file { '/etc/logrotate.d/deluge':
+          ensure  => file,
+          owner   => 'root',
+          group   => 'root',
+          mode    => '0644',
+          content => epp("${module_name}/logrotate/deluge.epp",
+            {
+              'service_ctl' => initctl,
+            }),
+          require => User[$deluge::service_user],
+        }
+      }
+      'systemd': {
+        file { '/etc/logrotate.d/deluge':
+          ensure  => file,
+          owner   => 'root',
+          group   => 'root',
+          mode    => '0644',
+          content => epp("${module_name}/logrotate/deluge.epp",
+            {
+              'service_ctl' => systemctl,
+            }),
+          require => User[$deluge::service_user],
+        }
+      }
+      default: {}
     }
   } else {
     file { '/etc/logrotate.d/deluge':

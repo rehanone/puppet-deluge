@@ -1,0 +1,15 @@
+<%- |   Enum[initctl, systemctl]  $service_ctl,
+| -%>
+/var/log/deluge/*.log {
+        rotate 4
+        weekly
+        missingok
+        notifempty
+        compress
+        delaycompress
+        sharedscripts
+        postrotate
+                <%= $service_ctl %> restart deluged >/dev/null 2>&1 || true
+                <%= $service_ctl %> restart deluge-web >/dev/null 2>&1 || true
+        endscript
+}

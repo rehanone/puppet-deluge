@@ -1,8 +1,21 @@
-start on started deluge
-stop on stopping deluge
+<%- |   String  $service_user,
+| -%>
+# deluge-web - Deluge Web UI
+#
+# The Web UI component of Deluge BitTorrent client, connects to deluged and
+# provides a web application interface for users. Default url: http://localhost:8112
 
-env uid=<%= $deluge::service_user %>
-env gid=<%= $deluge::service_user %>
+description "Deluge Web UI"
+author "Deluge Team"
+
+start on started deluged
+stop on stopping deluged
+
+respawn
+respawn limit 5 30
+
+env uid=<%= $service_user %>
+env gid=<%= $service_user %>
 
 env umask=027
 
@@ -12,4 +25,3 @@ env umask=027
 # 000 grants full access to all accounts.
 
 exec start-stop-daemon -S -c $uid:$gid -k $umask -x /usr/bin/deluge-web -- -l /var/log/deluge/web.log -L warning
-

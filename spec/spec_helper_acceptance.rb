@@ -11,9 +11,14 @@ unless ENV['RS_PROVISION'] == 'no' or ENV['BEAKER_provision'] == 'no'
     environmentpath = host.puppet['environmentpath']
     environmentpath = environmentpath.split(':').first if environmentpath
 
+    apply_manifest_on(host, 'package { "python-software-properties": }')
+    apply_manifest_on(host, 'package { "software-properties-common": }')
+
     on host, puppet('module install puppetlabs-stdlib')
     on host, puppet('module install puppetlabs-concat')
     on host, puppet('module install puppetlabs-apt')
+    on host, puppet('module install stahnma-epel')
+    on host, puppet('module install rehan-wget')
   end
 end
 

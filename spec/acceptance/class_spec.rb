@@ -1,8 +1,12 @@
 require 'spec_helper_acceptance'
 
 describe 'deluge class:', :unless => UNSUPPORTED_PLATFORMS.include?(fact('osfamily')) do
+
+  let(:pre_condition) { 'user {"deluge": ensure => present}' }
+  let(:params) {{ :type => 'server', }}
+
   it 'should run successfully' do
-    pp = "class { 'deluge': }"
+    pp = "class { 'deluge': type => 'server', repo_manage => true, }"
 
     # Apply twice to ensure no errors the second time.
     apply_manifest(pp, :catch_failures => true) do |r|
@@ -11,13 +15,13 @@ describe 'deluge class:', :unless => UNSUPPORTED_PLATFORMS.include?(fact('osfami
     apply_manifest(pp, :catch_failures => true) do |r|
       expect(r.stderr).not_to eq(/error/i)
 
-      expect(r.exit_code).to be_zero
+      expect(r.exit_code).to be 2
     end
   end
 
   context 'package_ensure => present:' do
     it 'runs successfully' do
-      pp = "class { 'deluge': package_ensure => present }"
+      pp = "class { 'deluge': type => 'server', repo_manage => true, package_ensure => present }"
 
       apply_manifest(pp, :catch_failures => true) do |r|
         expect(r.stderr).not_to match(/error/i)
@@ -27,7 +31,7 @@ describe 'deluge class:', :unless => UNSUPPORTED_PLATFORMS.include?(fact('osfami
 
   context 'package_ensure => absent:' do
     it 'runs successfully' do
-      pp = "class { 'deluge': package_ensure => absent }"
+      pp = "class { 'deluge': type => 'server', repo_manage => true, package_ensure => absent }"
 
       apply_manifest(pp, :catch_failures => true) do |r|
         expect(r.stderr).not_to match(/error/i)
