@@ -1,0 +1,20 @@
+---
+deluge::type: client
+deluge::repo_manage: false
+deluge::package_ensure: 'latest'
+deluge::package_server: 'deluged'
+deluge::package_webui: 'deluge-webui'
+deluge::package_console: 'deluge-console'
+deluge::package_client: 'deluge'
+deluge::service_enable: true
+deluge::service_ensure: 'running'
+deluge::service_manage: true
+deluge::service_server: 'deluged'
+deluge::service_webui: 'deluge-web'
+deluge::service_user: 'deluge'
+deluge::service_home: '/var/lib/deluge'
+deluge::service_ports:
+  '8112': 'tcp'
+  '58846': 'tcp'
+  '49152-65535': 'udp'
+deluge::firewall_manage: false

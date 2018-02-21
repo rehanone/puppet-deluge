@@ -6,6 +6,13 @@ class deluge::config () inherits deluge {
   $home = $deluge::service_home
   $service = $deluge::service_server
 
+  if ! defined(User[$user]) {
+    user {'deluge':
+      ensure => present,
+      system => true,
+    }
+  }
+
   file { $home:
     ensure  => directory,
     owner   => $user,
@@ -13,16 +20,14 @@ class deluge::config () inherits deluge {
     mode    => '0755',
     require => User[$user],
   }
-  ->
-  file { "${home}/.config":
+  -> file { "${home}/.config":
     ensure  => directory,
     owner   => $user,
     group   => $user,
     mode    => '0750',
     require => User[$user],
   }
-  ->
-  file { "${home}/.config/deluge":
+  -> file { "${home}/.config/deluge":
     ensure  => directory,
     owner   => $user,
     group   => $user,
@@ -30,8 +35,7 @@ class deluge::config () inherits deluge {
     require => User[$user],
     notify  => Service[$service],
   }
-  ->
-  exec { 'deluge-console-allow-remote':
+  -> exec { 'deluge-console-allow-remote':
     command     => "deluge-console \"config -s allow_remote True\"",
     path        => '/usr/bin',
     subscribe   => File["${home}/.config/deluge"],
@@ -39,8 +43,7 @@ class deluge::config () inherits deluge {
     group       => $user,
     notify      => Service[$service],
   }
-  ->
-  concat { "${home}/.config/deluge/auth":
+  -> concat { "${home}/.config/deluge/auth":
     ensure_newline => true,
     owner          => $user,
     group          => $user,

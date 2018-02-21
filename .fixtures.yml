@@ -6,5 +6,11 @@ fixtures:
       repo: "puppetlabs/concat"
     apt:
       repo: "puppetlabs/apt"
+    epel:
+      repo: "stahnma/epel"
+  repositories:
+    wget:
+      repo: 'https://github.com/rehanone/puppet-wget.git'
+      ref: '1.1.7'
   symlinks:
     deluge: "#{source_dir}"

@@ -1,0 +1,8 @@
+---
+deluge::repo_sources: 'http://li.nux.ro/download/nux/dextop/el7/x86_64'
+deluge::repo_package: 'nux-dextop-release-0-5.el7.nux.noarch.rpm'
+
+deluge::package_server: 'deluge-daemon'
+deluge::package_webui: 'deluge-web'
+deluge::package_console: 'deluge-console'
+deluge::package_client: 'deluge'

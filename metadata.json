@@ -14,12 +14,33 @@
   ],
   "operatingsystem_support": [
     {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Scientific",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
         "12.04",
         "14.04",
         "15.10",
-        "16.04"
+        "16.04",
+        "16.10",
+        "17.04",
+        "17.10"
       ]
     },
     {
@@ -44,6 +65,14 @@
     {
       "name": "puppetlabs-apt",
       "version_requirement": ">= 3.0.0 < 5.0.0"
+    },
+    {
+      "name": "stahnma-epel",
+      "version_requirement": ">= 1.0.0 < 2.0.0"
+    },
+    {
+      "name": "rehan-wget",
+      "version_requirement": ">= 1.0.0 < 2.0.0"
     }
   ],
   "data_provider": null

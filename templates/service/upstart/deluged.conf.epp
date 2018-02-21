@@ -1,8 +1,21 @@
-start on (filesystem and networking) or runlevel [2345]
+<%- |   String  $service_user,
+| -%>
+# deluged - Deluge daemon
+#
+# The daemon component of Deluge BitTorrent client. Deluge UI clients
+# connect to this daemon via DelugeRPC protocol.
+
+description "Deluge daemon"
+author "Deluge Team"
+
+start on filesystem and static-network-up
 stop on runlevel [016]
 
-env uid=<%= $deluge::service_user %>
-env gid=<%= $deluge::service_user %>
+respawn
+respawn limit 5 30
+
+env uid=<%= $service_user %>
+env gid=<%= $service_user %>
 
 env umask=007
 
@@ -12,4 +25,3 @@ env umask=007
 # 000 grants full access to all accounts.
 
 exec start-stop-daemon -S -c $uid:$gid -k $umask -x /usr/bin/deluged -- -d -l /var/log/deluge/daemon.log -L warning
-
