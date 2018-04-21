@@ -1,17 +1,14 @@
 define deluge::user (
-  $password,
-  $level,
-  $ensure = present,
+  String  $password,
+  String  $level,
+  Enum[absent, present]
+          $ensure = present,
 ) {
 
-  if ! ($ensure in [ 'absent', 'present' ]) {
-    fail('ensure parameter must be one of absent, present')
-  }
-
-  $home   = $deluge::service_home
+  $home = $deluge::service_home
 
   if ($ensure in [ 'present' ]) {
-    concat::fragment{ "${name}-${level}-${ensure}":
+    concat::fragment { "${name}-${level}-${ensure}":
       target  => "${home}/.config/deluge/auth",
       content => "${name}:${password}:${level}",
     }
