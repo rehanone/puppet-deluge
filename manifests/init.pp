@@ -2,7 +2,6 @@ class deluge (
   Enum[server, client]
           $type,
   Boolean $repo_manage,
-  String  $repo_sources,
   String  $package_ensure,
   String  $package_server,
   String  $package_webui,
@@ -21,6 +20,8 @@ class deluge (
   Hash[String, String]
           $service_ports,
   Boolean $firewall_manage,
+  Optional[String]
+          $repo_sources   = undef,
   Optional[String]
           $repo_package   = undef,
   Hash    $users = {},
