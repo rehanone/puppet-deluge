@@ -36,6 +36,13 @@ matrix:
       sudo: required
     -
       dist: trusty
+      env: PUPPET_INSTALL_TYPE=agent BEAKER_debug=true BEAKER_set=docker/ubuntu-14.04
+      rvm: 2.4.4
+      script: bundle exec rake beaker
+      services: docker
+      sudo: required
+    -
+      dist: trusty
       env: PUPPET_INSTALL_TYPE=agent BEAKER_debug=true BEAKER_set=docker/debian-8
       rvm: 2.4.4
       script: bundle exec rake beaker
