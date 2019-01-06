@@ -139,5 +139,5 @@ deluge::user { 'alice':
 
 ## Development
 
-You can submit pull requests and create issues through the official page of this module: https://github.com/rehanone/puppet-nginx.
+You can submit pull requests and create issues through the official page of this module: https://github.com/rehanone/puppet-deluge.
 Please do report any bug and suggest new features/improvements.

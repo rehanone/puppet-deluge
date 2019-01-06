@@ -1,12 +1,12 @@
 {
   "name": "rehan-deluge",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Rehan Mahmood",
   "summary": "A Puppet module to install, configure and deploy the latest deluge server or client.",
   "license": "Apache-2.0",
-  "source": "https://github.com/rehanone/puppet-nginx.git",
-  "project_page": "https://github.com/rehanone/puppet-nginx",
-  "issues_url": "https://github.com/rehanone/puppet-nginx/issues",
+  "source": "https://github.com/rehanone/puppet-deluge.git",
+  "project_page": "https://github.com/rehanone/puppet-deluge",
+  "issues_url": "https://github.com/rehanone/puppet-deluge/issues",
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
@@ -73,7 +73,7 @@
   ],
   "tags": [
     "Webserver",
-    "nginx",
+    "deluge",
     "reserse proxy"
   ],
   "pdk-version": "1.8.0",

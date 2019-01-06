@@ -1,3 +1,9 @@
+## 0.2.1 (October 17, 2018)
+
+Improvements:
+
+- Updated `pdk` templates.
+
 ## 0.2.0 (October 17, 2018)
 
 Improvements:
