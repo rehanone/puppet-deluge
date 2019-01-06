@@ -1,4 +1,4 @@
-## 0.2.1 (October 17, 2018)
+## 0.2.1 (January 6, 2019)
 
 Improvements:
 
