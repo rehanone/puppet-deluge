@@ -1,2 +1,2 @@
 ---
-deluge::repo_sources: 'ppa:deluge-team/ppa'
+deluge::repo_sources: 'ppa:deluge-team/stable'

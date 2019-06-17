@@ -88,12 +88,11 @@
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
-        "14.04",
         "16.04",
-        "17.10",
         "18.04",
         "18.10",
-        "19.04"
+        "19.04",
+        "19.10"
       ]
     },
     {
