@@ -4,6 +4,8 @@ class deluge::service () inherits deluge {
 
   if $deluge::service_manage == true {
 
+    notify {"${deluge::service_server}_service -> Using service provider: ${facts[service_provider]}":}
+
     case $facts[service_provider] {
       'upstart': {
         file { "/etc/init/${deluge::service_server}.conf":
@@ -32,7 +34,7 @@ class deluge::service () inherits deluge {
           notify  => [Service[$deluge::service_server], Service[$deluge::service_webui]],
         }
       }
-      'systemd': {
+      'systemd', 'debian': {
         file { "/etc/init/${deluge::service_server}.conf":
           ensure => absent,
         }
