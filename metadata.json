@@ -1,6 +1,6 @@
 {
   "name": "rehan-deluge",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "Rehan Mahmood",
   "summary": "A Puppet module to install, configure and deploy the latest deluge server or client.",
   "license": "Apache-2.0",
