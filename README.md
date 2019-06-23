@@ -21,7 +21,7 @@ A puppet module for managing the installation and configuration of deluge server
 Where possible, this module can be used to ensure the deluge installation is up to date with latest release.
 Currently, this feature is supported for the following OSes:
 
-  - Ubuntu (using [ppa:deluge-team/ppa](https://launchpad.net/~deluge-team/+archive/ubuntu/ppa "ppa:deluge-team/ppa") )
+  - Ubuntu (using [ppa:deluge-team/stable](https://launchpad.net/~deluge-team/+archive/ubuntu/stable "ppa:deluge-team/stable") )
 
 ## Setup
 In order to install `rehan-deluge`, run the following command:
