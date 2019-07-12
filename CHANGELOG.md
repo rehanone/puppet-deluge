@@ -1,3 +1,11 @@
+## 0.3.0 (July 11, 2019)
+
+Improvements:
+
+- Updated deluge repository to v2.0.
+- Added debian 9 as an integration test target.
+- Updated `pdk` templates.
+
 ## 0.2.2 (June 16, 2019)
 
 Improvements:
