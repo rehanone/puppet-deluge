@@ -29,6 +29,7 @@ appveyor.yml:
   docker_sets:
     - set: docker/ubuntu-18.04
     - set: docker/ubuntu-16.04
+    - set: docker/debian-10
     - set: docker/debian-9
     - set: docker/debian-8
     - set: docker/centos-7
