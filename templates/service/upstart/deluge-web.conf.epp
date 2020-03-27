@@ -1,4 +1,5 @@
 <%- |   String  $service_user,
+        String  $service_umask,
 | -%>
 # deluge-web - Deluge Web UI
 #
@@ -17,7 +18,7 @@ respawn limit 5 30
 env uid=<%= $service_user %>
 env gid=<%= $service_user %>
 
-env umask=027
+env umask=<%= $service_umask %>
 
 # 007 grants full access to the user and members of the group Deluge is running as (in this case deluge) and prevents access from all other accounts.
 # 027 grants full access to the user deluge is running as, read access to members of the group that deluge is running as and prevents access from all other accounts.

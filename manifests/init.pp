@@ -15,6 +15,8 @@ class deluge (
   String  $service_server,
   String  $service_webui,
   String  $service_user,
+  String  $service_server_umask,
+  String  $service_webui_umask,
   Stdlib::Absolutepath
           $service_home,
   Hash[String, String]

@@ -4,7 +4,7 @@ class deluge::service () inherits deluge {
 
   if $deluge::service_manage == true {
 
-    notify {"${deluge::service_server}_service -> Using service provider: ${facts[service_provider]}":}
+    notify { "${deluge::service_server}_service -> Using service provider: ${facts[service_provider]}": }
 
     case $facts[service_provider] {
       'upstart': {
@@ -15,7 +15,8 @@ class deluge::service () inherits deluge {
           mode    => '0644',
           content => epp("${module_name}/service/upstart/${deluge::service_server}.conf.epp",
             {
-              'service_user' => $deluge::service_user,
+              'service_user'  => $deluge::service_user,
+              'service_umask' => $deluge::service_server_umask,
             }),
           require => User[$deluge::service_user],
           notify  => [Service[$deluge::service_server], Service[$deluge::service_webui]],
@@ -28,7 +29,8 @@ class deluge::service () inherits deluge {
           mode    => '0644',
           content => epp("${module_name}/service/upstart/${deluge::service_webui}.conf.epp",
             {
-              'service_user' => $deluge::service_user,
+              'service_user'  => $deluge::service_user,
+              'service_umask' => $deluge::service_webui_umask,
             }),
           require => User[$deluge::service_user],
           notify  => [Service[$deluge::service_server], Service[$deluge::service_webui]],
@@ -50,7 +52,8 @@ class deluge::service () inherits deluge {
           mode    => '0644',
           content => epp("${module_name}/service/systemd/${deluge::service_server}.service.epp",
             {
-              'service_user' => $deluge::service_user,
+              'service_user'  => $deluge::service_user,
+              'service_umask' => $deluge::service_server_umask,
             }),
           require => User[$deluge::service_user],
           notify  => [Service[$deluge::service_server], Service[$deluge::service_webui]],
@@ -63,7 +66,8 @@ class deluge::service () inherits deluge {
           mode    => '0644',
           content => epp("${module_name}/service/systemd/${deluge::service_webui}.service.epp",
             {
-              'service_user' => $deluge::service_user,
+              'service_user'  => $deluge::service_user,
+              'service_umask' => $deluge::service_webui_umask,
             }),
           require => User[$deluge::service_user],
           notify  => [Service[$deluge::service_server], Service[$deluge::service_webui]],

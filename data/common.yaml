@@ -12,6 +12,8 @@ deluge::service_manage: true
 deluge::service_server: 'deluged'
 deluge::service_webui: 'deluge-web'
 deluge::service_user: 'deluge'
+deluge::service_server_umask: '002'
+deluge::service_webui_umask: '027'
 deluge::service_home: '/var/lib/deluge'
 deluge::service_ports:
   '8112': 'tcp'
