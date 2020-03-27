@@ -1,3 +1,11 @@
+## 0.6.0 (March 26, 2020)
+
+Improvements:
+
+- Added support for service umask to be configurable using `deluge::service_server_umask`.
+- Added support for service webui umask to be configurable using `deluge::service_webui_umask`.
+- Updated `pdk` templates.
+
 ## 0.5.0 (February 17, 2020)
 
 Improvements:
