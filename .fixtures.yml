@@ -7,10 +7,10 @@ fixtures:
     apt:
       repo: "puppetlabs/apt"
     epel:
-      repo: "stahnma/epel"
+      repo: "puppet/epel"
   repositories:
     wget:
       repo: 'https://github.com/rehanone/puppet-wget.git'
-      ref: '1.1.7'
+      ref: '1.5.1'
   symlinks:
     deluge: "#{source_dir}"
