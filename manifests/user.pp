@@ -1,8 +1,7 @@
 define deluge::user (
   String  $password,
   String  $level,
-  Enum[absent, present]
-          $ensure = present,
+  Enum[absent, present] $ensure = present,
 ) {
 
   $home = $deluge::service_home

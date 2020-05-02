@@ -22,7 +22,8 @@ class deluge::logrotate () inherits deluge {
           content => epp("${module_name}/logrotate/deluge.epp",
             {
               'service_ctl' => initctl,
-            }),
+            },
+          ),
           require => User[$deluge::service_user],
         }
       }
@@ -35,7 +36,8 @@ class deluge::logrotate () inherits deluge {
           content => epp("${module_name}/logrotate/deluge.epp",
             {
               'service_ctl' => systemctl,
-            }),
+            },
+          ),
           require => User[$deluge::service_user],
         }
       }

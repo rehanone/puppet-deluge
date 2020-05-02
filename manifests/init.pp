@@ -1,6 +1,5 @@
 class deluge (
-  Enum[server, client]
-          $type,
+  Enum[server, client] $type,
   Boolean $repo_manage,
   String  $package_ensure,
   String  $package_server,
@@ -8,34 +7,31 @@ class deluge (
   String  $package_console,
   String  $package_client,
   Boolean $service_manage,
-  Enum[stopped, running]
-          $service_ensure,
-  Variant[Enum[mask, manual], Boolean]
-          $service_enable,
+  Enum[stopped, running] $service_ensure,
+  Variant[Enum[mask, manual], Boolean] $service_enable,
   String  $service_server,
   String  $service_webui,
   String  $service_user,
   String  $service_server_umask,
   String  $service_webui_umask,
-  Stdlib::Absolutepath
-          $service_home,
+  Stdlib::Absolutepath $service_home,
   Array[
-    Struct[{
-      port =>
-        Variant[
+    Struct[
+      {
+        port =>
+          Variant[
           Stdlib::Port,
           Array[Stdlib::Port],
           Pattern['^\d*:\d+$'],
         ],
-      protocol => Enum[tcp, udp],
-    }]
+        protocol => Enum[tcp, udp],
+      }
+    ]
   ]       $service_ports,
   Boolean $firewall_manage,
-  Optional[String]
-          $repo_sources   = undef,
-  Optional[String]
-          $repo_package   = undef,
-  Hash    $users = {},
+  Optional[String] $repo_sources = undef,
+  Optional[String] $repo_package = undef,
+  Hash    $users                 = {},
 ) {
 
   if ($type == server) {

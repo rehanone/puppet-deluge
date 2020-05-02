@@ -10,15 +10,15 @@
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
-      "version_requirement": ">= 5.0.0 < 7.0.0"
+      "version_requirement": ">= 5.0.0 < 8.0.0"
     },
     {
       "name": "puppetlabs-concat",
-      "version_requirement": ">= 4.0.0 < 7.0.0"
+      "version_requirement": ">= 4.0.0 < 8.0.0"
     },
     {
       "name": "puppetlabs-apt",
-      "version_requirement": ">= 6.0.0 < 8.0.0"
+      "version_requirement": ">= 6.0.0 < 9.0.0"
     },
     {
       "name": "puppet-epel",
@@ -65,9 +65,9 @@
     {
       "operatingsystem": "Fedora",
       "operatingsystemrelease": [
-        "30",
-        "31",
-        "32"
+        "32",
+        "33",
+        "34"
       ]
     },
     {
@@ -91,9 +91,7 @@
       "operatingsystemrelease": [
         "16.04",
         "18.04",
-        "18.10",
-        "19.04",
-        "19.10"
+        "20.04"
       ]
     },
     {
@@ -103,15 +101,15 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 5.5.10 < 7.0.0"
+      "version_requirement": ">= 5.5.10 < 8.0.0"
     }
   ],
   "tags": [
-    "Webserver",
+    "torrent",
     "deluge",
-    "reserse proxy"
+    "downloader"
   ],
-  "pdk-version": "1.18.0",
-  "template-url": "pdk-default#1.18.0",
-  "template-ref": "tags/1.18.0-0-g095317c"
+  "pdk-version": "2.1.0",
+  "template-url": "pdk-default#2.1.0",
+  "template-ref": "tags/2.1.0-0-ga675ea5"
 }
