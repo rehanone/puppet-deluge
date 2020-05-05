@@ -1,3 +1,9 @@
+## 0.7.1 (May 5, 2020)
+
+Bugfixes:
+
+- Fix firewall rule naming issue.
+
 ## 0.7.0 (May 5, 2020)
 
 Improvements:
