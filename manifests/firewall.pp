@@ -5,7 +5,7 @@ class deluge::firewall () inherits deluge {
   if $deluge::firewall_manage {
     $deluge::service_ports.each |$port, $proto| {
       if defined('::firewall') {
-        firewall { "DELUGE - Allow inbound ${proto} connection on port: ${port}":
+        firewall { "${port} - DELUGE - Allow inbound ${proto} connection on port: ${port}":
           dport  => $port,
           proto  => $proto,
           action => accept,
