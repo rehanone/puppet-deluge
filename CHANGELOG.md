@@ -1,3 +1,11 @@
+## 0.7.0 (May 5, 2020)
+
+Improvements:
+
+- Added support for applying firewall rules if `ferm` is defined as firewall manager. It uses [ferm](https://forge.puppet.com/puppet/ferm) for managing firewall rules.
+- Change deprecated dependency from [stahnma/epel](https://forge.puppet.com/stahnma/epel) to [puppet/epel](https://forge.puppet.com/puppet/epel).
+- Removed unused test files.
+
 ## 0.6.0 (March 26, 2020)
 
 Improvements:
