@@ -19,8 +19,17 @@ class deluge (
   String  $service_webui_umask,
   Stdlib::Absolutepath
           $service_home,
-  Hash[String, String]
-          $service_ports,
+  Array[
+    Struct[{
+      port =>
+        Variant[
+          Stdlib::Port,
+          Array[Stdlib::Port],
+          Pattern['^\d*:\d+$'],
+        ],
+      protocol => Enum[tcp, udp],
+    }]
+  ]       $service_ports,
   Boolean $firewall_manage,
   Optional[String]
           $repo_sources   = undef,
