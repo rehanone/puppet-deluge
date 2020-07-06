@@ -1,3 +1,13 @@
+## 0.8.0 (July 5, 2020)
+
+Improvements:
+
+- Updated `pdk` templates.
+
+Bugfixes:
+
+- Fixed type for `service_port` parameter.
+
 ## 0.7.1 (May 5, 2020)
 
 Bugfixes:
