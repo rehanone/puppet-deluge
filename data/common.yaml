@@ -16,7 +16,10 @@ deluge::service_server_umask: '002'
 deluge::service_webui_umask: '027'
 deluge::service_home: '/var/lib/deluge'
 deluge::service_ports:
-  '8112': 'tcp'
-  '58846': 'tcp'
-  '49152-65535': 'udp'
+  - port: 8112
+    protocol: tcp
+  - port: 58846
+    protocol: tcp
+  - port: '49152:65535'
+    protocol: udp
 deluge::firewall_manage: false
