@@ -1,0 +1,3 @@
+---
+deluge::repo_manage: true
+deluge::package_webui: 'deluge-web'
