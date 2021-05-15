@@ -1,6 +1,6 @@
 # rehan-deluge
 
-[![Build Status](https://travis-ci.org/rehanone/puppet-deluge.svg?branch=master)](https://travis-ci.org/rehanone/puppet-deluge)
+[![Build Status](https://travis-ci.org/rehanone/puppet-deluge.svg?branch=master)](https://travis-ci.com/rehanone/puppet-deluge)
 
 #### Table of Contents
 1. [Overview](#overview)
@@ -31,9 +31,7 @@ $ puppet module install rehan-deluge
 The module does expect all the data to be provided through 'Hiera'. See [Usage](#usage) for examples on how to configure it.
 
 #### Requirements
-This module is designed to be as clean and compliant with latest puppet code guidelines. It works with:
-
-  - `puppet >=5.5.10`
+This module is designed to be as clean and compliant with latest puppet code guidelines.
 
 ## Usage
 
