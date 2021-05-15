@@ -20,30 +20,24 @@ class deluge::install () inherits deluge {
             install_options => '--replacepkgs',
           } -> package { $deluge::package_server:
             ensure => $deluge::package_ensure,
-            alias  => 'deluge',
           } -> package { $deluge::package_webui:
             ensure => $deluge::package_ensure,
-            alias  => 'deluge-webui',
           } -> package { $deluge::package_console:
             ensure => $deluge::package_ensure,
-            alias  => 'deluge-console',
           }
         }
       }
       default: {
         package { $deluge::package_server:
           ensure => $deluge::package_ensure,
-          alias  => 'deluge',
         }
 
         package { $deluge::package_webui:
           ensure => $deluge::package_ensure,
-          alias  => 'deluge-webui',
         }
 
         package { $deluge::package_console:
           ensure => $deluge::package_ensure,
-          alias  => 'deluge-console',
         }
       }
     }

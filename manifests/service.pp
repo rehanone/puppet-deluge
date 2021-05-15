@@ -17,7 +17,8 @@ class deluge::service () inherits deluge {
             {
               'service_user'  => $deluge::service_user,
               'service_umask' => $deluge::service_server_umask,
-            }),
+            },
+          ),
           require => User[$deluge::service_user],
           notify  => [Service[$deluge::service_server], Service[$deluge::service_webui]],
         }
@@ -31,7 +32,8 @@ class deluge::service () inherits deluge {
             {
               'service_user'  => $deluge::service_user,
               'service_umask' => $deluge::service_webui_umask,
-            }),
+            },
+          ),
           require => User[$deluge::service_user],
           notify  => [Service[$deluge::service_server], Service[$deluge::service_webui]],
         }
@@ -54,7 +56,8 @@ class deluge::service () inherits deluge {
             {
               'service_user'  => $deluge::service_user,
               'service_umask' => $deluge::service_server_umask,
-            }),
+            },
+          ),
           require => User[$deluge::service_user],
           notify  => [Service[$deluge::service_server], Service[$deluge::service_webui]],
         }
@@ -68,7 +71,8 @@ class deluge::service () inherits deluge {
             {
               'service_user'  => $deluge::service_user,
               'service_umask' => $deluge::service_webui_umask,
-            }),
+            },
+          ),
           require => User[$deluge::service_user],
           notify  => [Service[$deluge::service_server], Service[$deluge::service_webui]],
         }
