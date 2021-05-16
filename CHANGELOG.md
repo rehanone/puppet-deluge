@@ -1,3 +1,9 @@
+## 0.9.1 (May 16, 2021)
+
+**Improvements:**
+
+- Removed the unused docker node files.
+
 ## 0.9.0 (May 15, 2021)
 
 **Improvements:**
